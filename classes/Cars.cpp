@@ -22,6 +22,8 @@ class Car{
         engineCC = oldCar.engineCC;
         modelName = "copied model name";
     }
+    ~Car(){
+    }
     void printDetails();
     double increaseSpeed();
     double decreaseSpeed();

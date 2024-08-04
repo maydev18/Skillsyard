@@ -17,15 +17,16 @@ class Complex{
         real = a;
         img = b;
     }
-    void print(){
-        cout << "real = " << real << endl;
-        cout << "img = " << img << endl;
+    void operator- (){
+        img = -img;
+        real = -real;
     }
     Complex operator+ (Complex arg){
         int newreal = real + arg.real;
         int newimag = img + arg.img;
         return Complex(newreal , newimag);
     }
+    
     Complex operator- (Complex arg){
         int newreal = real - arg.real;
         int newimag = img - arg.img;
@@ -40,7 +41,12 @@ class Complex{
 };
 
 ostream & operator << (ostream & cout , Complex c1){
-    cout << c1.real << "+" << c1.img << 'i';
+    if(c1.img < 0){
+        cout << c1.real << "-" << -c1.img << 'i' << endl;
+    }
+    else {
+        cout << c1.real << "+" << c1.img << 'i' << endl;
+    }
 }
 
 Complex sum(Complex c1 , Complex c2){
@@ -49,7 +55,7 @@ Complex sum(Complex c1 , Complex c2){
 
 int main(){
     Complex c1(5 , 10);
-    // cout << c1;
-    // c1 << cout;
-    cout << c1 << 100;
+    cout << c1;
+    -c1;
+    cout << c1 << c1 << c1;
 }
